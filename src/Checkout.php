@@ -11,7 +11,7 @@ class Checkout
     public function applyPromoCode(string $code): void
     {
         if ($code === 'SAVE10') {
-            $this->cart->applyDiscount(0.10);
+            $this->cart->applyDiscount(10);
         }
     }
 

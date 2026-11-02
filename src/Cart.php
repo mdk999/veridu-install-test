@@ -15,14 +15,14 @@ class Cart
     }
 
     /**
-     * Apply a discount given as a fraction (0.10 = 10% off).
+     * Apply a discount given as a percentage (10 = 10% off).
      */
-    public function applyDiscount(float $rate): void
+    public function applyDiscount(float $percent): void
     {
-        if ($rate < 0 || $rate > 1) {
-            throw new \InvalidArgumentException('Discount must be between 0 and 1.');
+        if ($percent < 0 || $percent > 100) {
+            throw new \InvalidArgumentException('Discount must be between 0 and 100.');
         }
-        $this->discount = $rate;
+        $this->discount = $percent / 100;
     }
 
     public function total(): float
