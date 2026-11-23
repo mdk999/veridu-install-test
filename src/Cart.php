@@ -25,6 +25,16 @@ class Cart
         $this->discount = $rate;
     }
 
+    /** Number of items in the cart (sum of quantities). */
+    public function itemCount(): int
+    {
+        $count = 0;
+        foreach ($this->lines as $line) {
+            $count += $line['qty'];
+        }
+        return $count;
+    }
+
     public function total(): float
     {
         $subtotal = 0.0;
